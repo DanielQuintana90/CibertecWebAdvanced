@@ -1,20 +1,20 @@
-using CIBERTECWEB.Models;
+using Cibertec.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CIBERTECWEB.Controllers
+namespace Cibertec.Web.Controllers
 {
     public class CustomerController : Controller
     {
-        private readonly NorthwindDbContext _dbContext;
+        private readonly IUnitOfWork _unit;
 
-        public CustomerController(NorthwindDbContext dbContext)
+        public CustomerController(IUnitOfWork unit)
         {
-            _dbContext = dbContext;
+            _unit = unit;
         }
 
         public IActionResult Index()
-        {  
-            return View(_dbContext.Customers);
+        {
+            return View(_unit.Customers.GetAll());
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
 
-namespace CIBERTECWEB
+namespace Cibertec.Web
 {
     public class Program
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CIBERTECWEB.Models
+namespace Cibertec.Models
 {
     public class Customer
     {

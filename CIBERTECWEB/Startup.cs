@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cibertec.UnitOfWork;
+using Cibertec.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using CIBERTECWEB.Models;
-using Microsoft.EntityFrameworkCore;
 
-namespace CIBERTECWEB
+namespace Cibertec.Web
 {
     public class Startup
     {
@@ -30,10 +27,22 @@ namespace CIBERTECWEB
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<NorthwindDbContext>(
-                options =>
-                options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
+            //services.AddDbContext<NorthwindDbContext>(
+            //    options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
+
             services.AddMvc();
+
+            //services.AddTransient<IUnitOfWork>(option =>
+            //new EFUnitOfWork(
+            //    new NorthwindDbContext(
+            //        new DbContextOptionsBuilder<NorthwindDbContext>()
+            //        .UseSqlServer(Configuration.GetConnectionString("Northwind"))
+            //        .Options
+            //        )
+            //    ));
+
+            services.AddSingleton<IUnitOfWork>(implem => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

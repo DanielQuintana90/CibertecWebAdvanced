@@ -1,20 +1,20 @@
-using CIBERTECWEB.Models;
+using Cibertec.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CIBERTECWEB.Controllers
+namespace Cibertec.Web.Controllers
 {
     public class ProductController : Controller
     {
-        private readonly NorthwindDbContext _dbContext;
+        private readonly IUnitOfWork _unit;
 
-        public ProductController(NorthwindDbContext dbContext)
+        public ProductController(IUnitOfWork unit)
         {
-            _dbContext = dbContext;
+            _unit = unit;
         }
 
         public IActionResult Index()
         {
-            return View(_dbContext.Products);
+            return View(_unit.Products.GetAll());
         }
     }
 }

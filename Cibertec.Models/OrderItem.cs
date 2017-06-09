@@ -1,4 +1,4 @@
-﻿namespace CIBERTECWEB.Models
+﻿namespace Cibertec.Models
 {
     public class OrderItem
     {
