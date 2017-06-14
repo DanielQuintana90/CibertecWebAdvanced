@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Cibertec.Web.Filter;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace Cibertec.Web.Controllers
 {
+    [ExceptionLoggerFilter]
     public class HomeController : Controller
     {
         public IActionResult Index()
@@ -30,6 +29,12 @@ namespace Cibertec.Web.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+
+        [Route("Home/Issue")]
+        public IActionResult CreateIssue()
+        {
+            throw new Exception("New error for demostration");
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using Cibertec.Repositories.Interfaces;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -7,11 +6,11 @@ namespace Cibertec.Repositories
 {
     public class RepositoryDapper<T> : IRepository<T> where T : class
     {
-        private readonly string _connectionString;
+        protected readonly string _connectionString;
 
         public RepositoryDapper(string connectionString)
         {
-            SqlMapperExtensions.TableNameMapper = (type) => { return type.Name; };
+            SqlMapperExtensions.TableNameMapper = (type) => { return $"[{type.Name}]"; };
 
             _connectionString = connectionString;
         }
@@ -29,6 +28,14 @@ namespace Cibertec.Repositories
             using (var connection = new SqlConnection(_connectionString))
             {
                 return connection.GetAll<T>();
+            }
+        }
+
+        public T GetById(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.Get<T>(id);
             }
         }
 

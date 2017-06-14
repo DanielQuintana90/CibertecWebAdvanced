@@ -1,4 +1,4 @@
-using Cibertec.UnitOfWork.Interfaces;
+using Cibertec.UnitOfWork;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Cibertec.Web.Controllers

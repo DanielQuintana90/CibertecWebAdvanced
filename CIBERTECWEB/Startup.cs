@@ -1,11 +1,13 @@
 ﻿using Cibertec.UnitOfWork;
-using Cibertec.UnitOfWork.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using NLog.Extensions.Logging;
+using NLog.Web;
 
 namespace Cibertec.Web
 {
@@ -19,6 +21,8 @@ namespace Cibertec.Web
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            env.ConfigureNLog("NLogConfig.config");
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -31,7 +35,6 @@ namespace Cibertec.Web
             //    options =>
             //    options.UseSqlServer(Configuration.GetConnectionString("Northwind")));
 
-            services.AddMvc();
 
             //services.AddTransient<IUnitOfWork>(option =>
             //new EFUnitOfWork(
@@ -42,14 +45,21 @@ namespace Cibertec.Web
             //        )
             //    ));
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
             services.AddSingleton<IUnitOfWork>(implem => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
+
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            loggerFactory.AddNLog();
+            app.AddNLogWeb();
+
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            //loggerFactory.AddDebug();
 
             if (env.IsDevelopment())
             {

@@ -1,5 +1,4 @@
-﻿using Cibertec.Repositories.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
 namespace Cibertec.Repositories
@@ -8,7 +7,7 @@ namespace Cibertec.Repositories
     {
         private const int SUCCESS_TRANSACTION = 1;
 
-        private readonly DbContext _dbContext;        
+        protected readonly DbContext _dbContext;        
 
         public Repository(DbContext dbContext)
         {
@@ -25,6 +24,11 @@ namespace Cibertec.Repositories
         public IEnumerable<T> GetAll()
         {
             return _dbContext.Set<T>();
+        }
+
+        public T GetById(int id)
+        {
+            return _dbContext.Set<T>().Find(id);
         }
 
         public int Insert(T entity)

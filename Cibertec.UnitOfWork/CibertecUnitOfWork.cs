@@ -1,7 +1,7 @@
 ﻿using Cibertec.Models;
 using Cibertec.Repositories;
-using Cibertec.Repositories.Interfaces;
-using Cibertec.UnitOfWork.Interfaces;
+using Cibertec.Repositories.Northwind;
+using Cibertec.Repositories.Northwind.Dapper;
 
 namespace Cibertec.UnitOfWork
 {
@@ -9,14 +9,14 @@ namespace Cibertec.UnitOfWork
     {
         public CibertecUnitOfWork(string connectionString)
         {
-            Customers = new RepositoryDapper<Customer>(connectionString);
+            Customers = new CustomerRepository(connectionString);
             Orders = new RepositoryDapper<Order>(connectionString);
             OrderItems = new RepositoryDapper<OrderItem>(connectionString);
             Products = new RepositoryDapper<Product>(connectionString);
             Suppliers = new RepositoryDapper<Supplier>(connectionString);
         }
 
-        public IRepository<Customer> Customers { get; private set; }
+        public ICustomerRepository Customers { get; private set; }
         public IRepository<Order> Orders { get; private set; }
         public IRepository<OrderItem> OrderItems { get; private set; }
         public IRepository<Product> Products { get; private set; }
