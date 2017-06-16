@@ -1,4 +1,0 @@
-Order -> OrderNumber
-OrderItem -> UnitPrice > CantidadIngresada
-Product -> ProducName
-Supplier -> ContactName
