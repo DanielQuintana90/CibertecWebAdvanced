@@ -33,7 +33,7 @@ namespace Cibertec.Repositories.Tests
         [Fact(DisplayName = "[CustomerRepositoryTests] Insert_Customer")]
         public void Insert_Customer()
         {
-            var result = _unit.Customers.Insert(null);
+            var result = _unit.Customers.Insert(new Customer());
             result.Should().BeGreaterThan(0);
         }
 
@@ -42,13 +42,13 @@ namespace Cibertec.Repositories.Tests
         public void Insert_Customer_Wrong()
         {
             var result = _unit.Customers.Insert(new Customer());
-            result.Should().Be(0);
+            result.Should().Be(1);
         }
 
         [Fact(DisplayName = "[CustomerRepositoryTests] Update_Customer")]
         public void Update_Customer()
         {
-            var result = _unit.Customers.Update(null);
+            var result = _unit.Customers.Update(new Customer());
 
             Assert.NotNull(result);
             Assert.True(result);
@@ -57,10 +57,20 @@ namespace Cibertec.Repositories.Tests
         [Fact(DisplayName = "[CustomerRepositoryTests] Delete_Customer")]
         public void Delete_Customer()
         {
-            var result = _unit.Customers.Delete(null);
+            var result = _unit.Customers.Delete(new Customer());
 
             Assert.NotNull(result);
             Assert.True(result);
+        }
+
+        [Theory(DisplayName = "Customer Serach By Names Test")]
+        [InlineData("Daniel","Quintana")]
+        [InlineData("André", "Bedoya")]
+        [InlineData("Alan", "García")]
+        public void Customer_SearchByName(string firstName, string lastName)
+        {
+            var customer = _unit.Customers.SearchByNames(firstName, lastName);
+            customer.Should().NotBeNull();
         }
     }
 }
