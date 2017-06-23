@@ -4,7 +4,7 @@ using Moq;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Cibertec.Repositories.Tests
+namespace Cibertec.MockData
 {
     public static class MockedUnitOfWork
     {
