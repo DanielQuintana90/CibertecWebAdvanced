@@ -22,5 +22,19 @@ namespace Cibertec.Automation.Tests
 
             Driver.CloseInstance();
         }
+
+        [Fact]
+        public void Customer_Create_Automation()
+        {
+            _customerPage.GoToUrl();
+            _customerPage.GoToIndex();
+            _customerPage.GoToCreate();
+            _customerPage.LoadDataToCustomer();
+            _customerPage.CreateCustomer();
+            _customerPage.GetListCount().Should().BeGreaterThan(92);
+
+            Driver.CloseInstance();
+        }
+
     }
 }
