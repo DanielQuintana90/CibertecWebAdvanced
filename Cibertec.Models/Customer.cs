@@ -16,6 +16,6 @@ namespace Cibertec.Models
         public string Country { get; set; }
         public string Phone { get; set; }
 
-        public virtual IEnumerable<Order> Orders { get; set; }
+        //public virtual IEnumerable<Order> Orders { get; set; }
     }
 }

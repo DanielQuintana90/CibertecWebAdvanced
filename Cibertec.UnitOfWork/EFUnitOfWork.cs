@@ -1,6 +1,4 @@
-﻿using Cibertec.Models;
-using Cibertec.Repositories;
-using Cibertec.Repositories.Northwind;
+﻿using Cibertec.Repositories.Northwind;
 using Cibertec.Repositories.Northwind.EntityFramework;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,5 +20,6 @@ namespace Cibertec.UnitOfWork
         public IOrderItemRepository OrderItems { get; private set; }
         public IProductRepository Products { get; private set; }
         public ISupplierRepository Suppliers { get; private set; }
+        public IUserRepository Users { get; private set; }
     }
 }

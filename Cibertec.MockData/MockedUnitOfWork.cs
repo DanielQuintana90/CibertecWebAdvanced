@@ -29,8 +29,7 @@ namespace Cibertec.MockData
                     LastName = "Quintana",
                     Phone = "123456789",
                     Country = "Perú",
-                    City = "Lima",
-                    Orders = new List<Order>()
+                    City = "Lima"             
                 },
                 new Customer
                 {
@@ -39,8 +38,7 @@ namespace Cibertec.MockData
                     LastName = "Bedoya",
                     Phone = "987654321",
                     Country = "Brasil",
-                    City = "Sao Paulo",
-                    Orders = new List<Order>()
+                    City = "Sao Paulo"               
                 }
             };
 

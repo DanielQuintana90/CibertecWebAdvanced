@@ -32,7 +32,7 @@ namespace Cibertec.Web.Tests
         [Fact(DisplayName = "[CustomerController] Detail_Customer")]
         public void Detail_Test()
         {
-            var result = _controller.Detail() as ViewResult;
+            var result = _controller.Detail("Daniel", "Quintana") as ViewResult;
             result.Should().NotBeNull();
         }
     }

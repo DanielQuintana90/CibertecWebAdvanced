@@ -12,7 +12,7 @@ namespace Cibertec.Models
         public int CustomerId { get; set; }
         public decimal TotalAmount { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual IEnumerable<OrderItem> OrderItems { get; set; }
+        //public virtual Customer Customer { get; set; }
+        //public virtual IEnumerable<OrderItem> OrderItems { get; set; }
     }
 }

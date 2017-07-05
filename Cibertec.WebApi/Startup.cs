@@ -1,4 +1,5 @@
 ﻿using Cibertec.UnitOfWork;
+using Cibertec.WebApi.Provider;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -21,7 +22,7 @@ namespace Cibertec.WebApi
             Configuration = builder.Build();
 
 
-           // env.ConfigureNLog("NLogConfig.config");
+            // env.ConfigureNLog("NLogConfig.config");
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -32,9 +33,9 @@ namespace Cibertec.WebApi
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression();
 
-            //services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-
             services.AddSingleton<IUnitOfWork>(implem => new CibertecUnitOfWork(Configuration.GetConnectionString("Northwind")));
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             // Add framework services.
             services.AddMvc();
@@ -46,11 +47,10 @@ namespace Cibertec.WebApi
             //loggerFactory.AddNLog();
             //app.AddNLogWeb();
 
-            //loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            //loggerFactory.AddDebug();
-
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();  
             app.UseResponseCompression();
-
+            app.UseSimpleToken();
             app.UseMvc();
         }
     }
