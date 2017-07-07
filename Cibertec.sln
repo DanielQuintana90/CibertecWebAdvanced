@@ -25,6 +25,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{89371B7C-C95
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cibertec.WebApi", "Cibertec.WebApi\Cibertec.WebApi.csproj", "{F4504F4C-A3B2-4AAD-A6E4-2CD97112A3DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cibertec.Angular", "Cibertec.Angular\Cibertec.Angular.csproj", "{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{F4504F4C-A3B2-4AAD-A6E4-2CD97112A3DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4504F4C-A3B2-4AAD-A6E4-2CD97112A3DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4504F4C-A3B2-4AAD-A6E4-2CD97112A3DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +82,6 @@ Global
 		{F0125428-3EAE-42B0-B507-30F9C5D38B55} = {17B5BC45-E635-44CD-B2BC-1475DEC5DA19}
 		{D20E2679-F6C8-4E7D-B11D-DABD60E98766} = {17B5BC45-E635-44CD-B2BC-1475DEC5DA19}
 		{F4504F4C-A3B2-4AAD-A6E4-2CD97112A3DE} = {89371B7C-C95E-4FE0-993E-160757D5F6A5}
+		{6D1D48C1-9FD6-423A-AC98-6E5CF992DE63} = {89371B7C-C95E-4FE0-993E-160757D5F6A5}
 	EndGlobalSection
 EndGlobal
