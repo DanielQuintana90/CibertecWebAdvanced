@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Cibertec.Angular.Code;
 
 namespace Cibertec.Angular
 {
@@ -27,6 +28,8 @@ namespace Cibertec.Angular
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ConfigurationFile>(Configuration.GetSection("ConfigurationFile"));
+
             // Add framework services.
             services.AddMvc();
         }

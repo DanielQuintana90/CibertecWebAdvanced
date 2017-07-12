@@ -30,6 +30,11 @@ namespace Cibertec.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(cors => cors.AddPolicy("AllAccess", builder =>
+            {
+                builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+            }));
+
             services.Configure<GzipCompressionProviderOptions>(options => options.Level = System.IO.Compression.CompressionLevel.Optimal);
             services.AddResponseCompression();
 
@@ -47,10 +52,12 @@ namespace Cibertec.WebApi
             //loggerFactory.AddNLog();
             //app.AddNLogWeb();
 
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();  
-            app.UseResponseCompression();
+            app.UseCors("AllAccess");
             app.UseSimpleToken();
+
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+            app.UseResponseCompression();   
             app.UseMvc();
         }
     }

@@ -1,5 +1,10 @@
 ﻿(function () {
     'use strict';
 
-    angular.module('app', ['ui.router']);
+    angular.module('app', [
+        'ngAnimate',
+        'ui.router',
+        'LocalStorageModule'  
+    ]);
+
 })();
