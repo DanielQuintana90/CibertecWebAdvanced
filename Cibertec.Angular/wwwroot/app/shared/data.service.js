@@ -17,7 +17,7 @@
 
         return service;
 
-        function getDate(url) {
+        function getData(url) {
             return $http.get(url);
         }
 

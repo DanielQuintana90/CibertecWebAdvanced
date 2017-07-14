@@ -15,6 +15,18 @@
                 url: '/login',
                 templateUrl: 'app/public/login/index.html'
             })
+            .state("product", {
+                url: "/product",
+                templateUrl: 'app/private/product/index.html'
+            })
+            .state("order", {
+                url: "/order",
+                templateUrl: 'app/private/order/index.html'
+            })
+            .state("orderitem", {
+                url: "/orderitem",
+                templateUrl: 'app/private/orderitem/index.html'
+            })
             .state("otherwise", {
                 url: '*path',
                 templateUrl: 'app/home.html'

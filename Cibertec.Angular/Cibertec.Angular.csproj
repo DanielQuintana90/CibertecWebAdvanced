@@ -14,7 +14,30 @@
     <Content Include="wwwroot\app\app.js" />
     <Content Include="wwwroot\app\app.routes.js" />
     <Content Include="wwwroot\app\home.html" />
-    <Content Include="wwwroot\app\login.html" />
+    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\order-card.html" />
+    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\order-card.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.html" />
+    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.js" />
+    <Content Include="wwwroot\app\private\orderitem\index.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\orderitem\order.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\orderitem\orderitem.controller.js" />
+    <Content Include="wwwroot\app\private\order\directives\order-card\order-card.html" />
+    <Content Include="wwwroot\app\private\order\directives\order-card\order-card.js" />
+    <Content Include="wwwroot\app\private\order\index.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\order\order.controller.js" />
+    <Content Include="wwwroot\app\private\order\ordercontroller.js" />
+    <Content Include="wwwroot\app\private\product\directives\product-card\product-card.html" />
+    <Content Include="wwwroot\app\private\product\directives\product-card\product-card.js" />
+    <Content Include="wwwroot\app\private\product\index.html" />
+    <Content Include="wwwroot\app\private\product\product.controller.js" />
     <Content Include="wwwroot\app\public\login\index.html" />
     <Content Include="wwwroot\app\public\login\login.controller.js" />
     <Content Include="wwwroot\app\shared\authentication.service.js" />
