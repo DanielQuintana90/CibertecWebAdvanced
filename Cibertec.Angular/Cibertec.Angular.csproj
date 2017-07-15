@@ -14,16 +14,18 @@
     <Content Include="wwwroot\app\app.js" />
     <Content Include="wwwroot\app\app.routes.js" />
     <Content Include="wwwroot\app\home.html" />
-    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\order-card.html" />
-    <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\order-card.js">
+    <Content Include="wwwroot\app\private\customer\customer.controller.js" />
+    <Content Include="wwwroot\app\private\customer\directives\customer-card\customer-card.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
+    <Content Include="wwwroot\app\private\customer\directives\customer-card\customer-card.js" />
+    <Content Include="wwwroot\app\private\customer\index.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\customer\order.controller.js" />
     <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.html" />
     <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.js" />
     <Content Include="wwwroot\app\private\orderitem\index.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\private\orderitem\order.controller.js">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\private\orderitem\orderitem.controller.js" />
@@ -33,11 +35,20 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\private\order\order.controller.js" />
-    <Content Include="wwwroot\app\private\order\ordercontroller.js" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.html" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.js" />
     <Content Include="wwwroot\app\private\product\index.html" />
     <Content Include="wwwroot\app\private\product\product.controller.js" />
+    <Content Include="wwwroot\app\private\supplier\customer.controller.js" />
+    <Content Include="wwwroot\app\private\supplier\directives\supplier-card\customer-card.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\supplier\directives\supplier-card\supplier-card.html" />
+    <Content Include="wwwroot\app\private\supplier\directives\supplier-card\supplier-card.js" />
+    <Content Include="wwwroot\app\private\supplier\index.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\private\supplier\supplier.controller.js" />
     <Content Include="wwwroot\app\public\login\index.html" />
     <Content Include="wwwroot\app\public\login\login.controller.js" />
     <Content Include="wwwroot\app\shared\authentication.service.js" />

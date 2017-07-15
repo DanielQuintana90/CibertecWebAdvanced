@@ -12,6 +12,8 @@
         vm.product = product;
         vm.order = order;
         vm.orderItem = orderItem;
+        vm.customer = customer;
+        vm.supplier = supplier;
 
         $scope.init = function (url) {
             configService.setApiUrl(url);
@@ -36,6 +38,15 @@
         function orderItem() {
             $state.go("orderitem");
         }
+
+        function customer() {
+            $state.go("customer");
+        }
+
+        function supplier() {
+            $state.go("supplier");
+        }
+        
     }
 
 

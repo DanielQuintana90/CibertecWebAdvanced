@@ -13,7 +13,7 @@ namespace Cibertec.WebApi.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Ok(_unit.Orders.GetAll());
+            return Ok(_unit.Suppliers.GetAll());
         }
     }
 }
