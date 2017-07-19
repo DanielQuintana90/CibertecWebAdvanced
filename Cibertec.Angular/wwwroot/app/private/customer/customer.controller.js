@@ -20,7 +20,7 @@
         }
 
         function list() {
-            dataService.getData(apiUrl + '/customer/List')
+            dataService.getData(apiUrl + '/customer/list')
                 .then(function (result) {
                     vm.customerList = result.data;
                 }, function (error) {

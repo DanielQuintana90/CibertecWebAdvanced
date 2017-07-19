@@ -13,6 +13,8 @@
     <Content Include="wwwroot\app\app.controller.js" />
     <Content Include="wwwroot\app\app.js" />
     <Content Include="wwwroot\app\app.routes.js" />
+    <Content Include="wwwroot\app\components\modal\modal-directive.html" />
+    <Content Include="wwwroot\app\components\modal\modal.directive.js" />
     <Content Include="wwwroot\app\home.html" />
     <Content Include="wwwroot\app\private\customer\customer.controller.js" />
     <Content Include="wwwroot\app\private\customer\directives\customer-card\customer-card.html">
@@ -22,7 +24,6 @@
     <Content Include="wwwroot\app\private\customer\index.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="wwwroot\app\private\customer\order.controller.js" />
     <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.html" />
     <Content Include="wwwroot\app\private\orderitem\directives\orderitem-card\orderitem-card.js" />
     <Content Include="wwwroot\app\private\orderitem\index.html">
@@ -37,9 +38,10 @@
     <Content Include="wwwroot\app\private\order\order.controller.js" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.html" />
     <Content Include="wwwroot\app\private\product\directives\product-card\product-card.js" />
+    <Content Include="wwwroot\app\private\product\directives\product-form\product-form.html" />
+    <Content Include="wwwroot\app\private\product\directives\product-form\product-form.js" />
     <Content Include="wwwroot\app\private\product\index.html" />
     <Content Include="wwwroot\app\private\product\product.controller.js" />
-    <Content Include="wwwroot\app\private\supplier\customer.controller.js" />
     <Content Include="wwwroot\app\private\supplier\directives\supplier-card\customer-card.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -90,6 +92,9 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\css\" />
   </ItemGroup>
 
 </Project>

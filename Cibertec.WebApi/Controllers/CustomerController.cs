@@ -12,6 +12,7 @@ namespace Cibertec.WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("list")]
         public IActionResult List()
         {
             return Ok(_unit.Customers.GetAll());
