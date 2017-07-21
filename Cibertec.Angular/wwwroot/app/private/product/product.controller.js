@@ -17,20 +17,44 @@
         vm.modalTitle = '';
         vm.showCreate = false;
 
+        vm.totalRecords = 0;
+        vm.itemsPerPage = 25;
+        vm.currentPage = 1;
+        vm.maxSize = 10;
+
         vm.getProduct = getProduct;
         vm.create = create;
         vm.edit = edit;
         vm.delete = productDelete;
+        vm.list = list;
+        vm.pageChanged = pageChanged;
 
         init();
 
         function init() {
             if (!configService.getLogin()) return $state.go('login');
-            list();
+            configurePagination();
+        }
+
+        function configurePagination() {
+            var widthScreen = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+            if (widthScreen < 420) vm.maxSize = 5;
+            getTotalRecords();
+        }
+
+        function getTotalRecords() {
+            dataService.getData(apiUrl + '/product/count')
+                .then(function (result) {
+                    vm.totalRecords = result.data;
+                    list();
+                }, function (error) {
+                    vm.totalRecords = 0;
+                    console.log(error);
+                });
         }
 
         function list() {
-            dataService.getData(apiUrl + '/product')
+            dataService.getData(apiUrl + '/product/' + vm.currentPage + '/' + vm.itemsPerPage)
                 .then(function (result) {
                     vm.productList = result.data;
                 }, function (error) {
@@ -53,7 +77,7 @@
         function updateProduct() {
             if (!vm.product) return;
 
-            dataService.putData(apiUrl + '/product/', vm.product)
+            dataService.putData(apiUrl + '/product', vm.product)
                 .then(function (result) {
                     vm.product = {};
                     list();
@@ -68,11 +92,13 @@
         function createProduct() {
             if (!vm.product) return;
 
-            dataService.postData(apiUrl + '/product/', vm.product)
+            dataService.postData(apiUrl + '/product', vm.product)
                 .then(function (result) {
-                    getProduct(result.data.id)
-                    list();
+                    //getProduct(result.data.id)
+                    vm.currentPage = 1;
+                    pageChanged();
                     vm.showCreate = true;
+                    closeModal();
                 }, function (error) {          
                     console.log(error);
                 });
@@ -126,6 +152,10 @@
 
         function closeModal() {
             angular.element('#modal-container').modal('hide');
+        }
+
+        function pageChanged() {       
+            list();
         }
 
     }

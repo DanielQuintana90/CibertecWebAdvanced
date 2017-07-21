@@ -43,5 +43,22 @@ namespace Cibertec.WebApi.Controllers
             return Ok(_unit.Products.Delete(_unit.Products.GetById(id)));
         }
 
+        [HttpGet]
+        [Route("{numberPage}/{numberRecords}")]
+        public IActionResult GetProductsByPagination(int numberPage, int numberRecords)
+        {
+            int startRow = (numberPage - 1) * numberRecords + 1;
+            int endRow = numberPage * numberRecords;
+
+            return Ok(_unit.Products.GetProductsByPagination(startRow, endRow));
+        }
+
+        [HttpGet]
+        [Route("count")]
+        public IActionResult GetRowNumbers()
+        {
+            return Ok(_unit.Products.RowNumbers());
+        }
+
     }
 }

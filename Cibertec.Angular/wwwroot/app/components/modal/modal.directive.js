@@ -9,8 +9,8 @@
             scope: {
                 title: '@',
                 buttonTitle: '@',
-                saveFunction: '@',
-                closeFunction: '@',
+                saveFunction: '=',
+                closeFunction: '=',
                 readOnly: '=',
                 isDelete: '='
             }

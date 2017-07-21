@@ -1,5 +1,6 @@
 ﻿using Cibertec.Models;
 using Dapper;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Cibertec.Repositories.Northwind.Dapper
@@ -9,7 +10,7 @@ namespace Cibertec.Repositories.Northwind.Dapper
         public ProductRepository(string connectionString) : base(connectionString)
         {
 
-        }        
+        }
 
         public Product GetByProductName(string productName)
         {
@@ -19,6 +20,28 @@ namespace Cibertec.Repositories.Northwind.Dapper
                 parameters.Add("@productName", productName);
 
                 return connection.QueryFirst<Product>("dbo.SearchByProductName",
+                    parameters,
+                    commandType: System.Data.CommandType.StoredProcedure);
+            }
+        }
+
+        public int RowNumbers()
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                return connection.ExecuteScalar<int>("select Count(Id) from dbo.Product");
+            }
+        }
+
+        public IEnumerable<Product> GetProductsByPagination(int startRow, int endRow)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var parameters = new DynamicParameters();
+                parameters.Add("@startRow", startRow);
+                parameters.Add("@endRow", endRow);
+
+                return connection.Query<Product>("dbo.ProductPagedList",
                     parameters,
                     commandType: System.Data.CommandType.StoredProcedure);
             }
