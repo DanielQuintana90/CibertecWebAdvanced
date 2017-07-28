@@ -45,6 +45,10 @@
                 url: "/supplier",
                 templateUrl: 'app/private/supplier/index.html'
             })
+            .state("csv", {
+                url: "/csv-viewer",
+                templateUrl: 'app/private/csv-viewer/index.html'
+            })
             .state("otherwise", {
                 url: '*path',
                 templateUrl: 'app/home.html'
@@ -92,6 +96,7 @@
         vm.orderItem = orderItem;
         vm.customer = customer;
         vm.supplier = supplier;
+        vm.csv = csv;
 
         $scope.init = function (url) {
             configService.setApiUrl(url);
@@ -124,7 +129,11 @@
         function supplier() {
             $state.go("supplier");
         }
-        
+
+        function csv() {
+            $state.go("csv");
+        }
+
     }
 
 

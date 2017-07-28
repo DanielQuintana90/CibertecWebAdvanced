@@ -14,6 +14,7 @@
         vm.orderItem = orderItem;
         vm.customer = customer;
         vm.supplier = supplier;
+        vm.csv = csv;
 
         $scope.init = function (url) {
             configService.setApiUrl(url);
@@ -46,7 +47,11 @@
         function supplier() {
             $state.go("supplier");
         }
-        
+
+        function csv() {
+            $state.go("csv");
+        }
+
     }
 
 

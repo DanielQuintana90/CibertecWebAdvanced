@@ -35,6 +35,10 @@
                 url: "/supplier",
                 templateUrl: 'app/private/supplier/index.html'
             })
+            .state("csv", {
+                url: "/csv-viewer",
+                templateUrl: 'app/private/csv-viewer/index.html'
+            })
             .state("otherwise", {
                 url: '*path',
                 templateUrl: 'app/home.html'
