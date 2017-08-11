@@ -1,8 +1,13 @@
 ﻿<div ng-controller="productController as vm">
 
-    <div ng-show="vn.showCreate" class="alert alert-success alert-dismissable">
+    <div ng-show="vm.showCreate" class="alert alert-success alert-dismissable">
         <a href="" class="close" data-dismiss="alert" aria-label="Close">&times;</a>
         <strong>OK</strong> The product was created properly.
+    </div>
+
+    <div ng-show="vm.isEdited" class="alert alert-info alert-dismissable">
+        <a href="" class="close" data-dismiss="alert" aria-label="Close">&times;</a>
+        <strong>Information</strong> This product is edited at this moment.
     </div>
 
     <div>
@@ -25,7 +30,7 @@
                       unit-price="{{::product.unitPrice}}"
                       package="{{::product.package}}"
                       is-discontinued="product.isDiscontinued">
-            <button ng-click="vm.getProduct(product.id); vm.edit();" data-toggle="modal" data-target="#modal-container" class="btn btn-success btn-sm">
+            <button ng-click="vm.getProduct(product.id); vm.edit();" class="btn btn-success btn-sm">
                 <span class="glyphicon glyphicon-erase"></span> Edit
             </button>
             <button ng-click="vm.getProduct(product.id); vm.delete();" data-toggle="modal" data-target="#modal-container" class="btn btn-danger btn-sm">
@@ -45,7 +50,7 @@
                  button-title="{{vm.modalButtonTitle}}"
                  save-function="vm.modalFunction"
                  close-function="vm.closeModal"
-                 read-only="vmreadOnly"
+                 read-only="vm.readOnly"
                  is-delete="vm.isDelete">
 
         <product-form product="vm.product"></product-form>

@@ -44,9 +44,6 @@
     <Content Include="wwwroot\app\private\product\directives\product-form\product-form.js" />
     <Content Include="wwwroot\app\private\product\index.html" />
     <Content Include="wwwroot\app\private\product\product.controller.js" />
-    <Content Include="wwwroot\app\private\supplier\directives\supplier-card\customer-card.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\private\supplier\directives\supplier-card\supplier-card.html" />
     <Content Include="wwwroot\app\private\supplier\directives\supplier-card\supplier-card.js" />
     <Content Include="wwwroot\app\private\supplier\index.html">
